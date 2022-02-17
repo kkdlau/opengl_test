@@ -1,0 +1,13 @@
+Determining if the function IceConnectionNumber exists in the ICE failed with the following output:
+Change Dir: /Users/dannylau/Program/opengl_test/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_74caf && [1/2] Building C object CMakeFiles/cmTC_74caf.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_74caf
+FAILED: cmTC_74caf 
+: && /usr/bin/clang -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cmTC_74caf.dir/CheckFunctionExists.c.o  -o cmTC_74caf -L/usr/local/lib -Wl,-rpath,/usr/local/lib  -lICE && :
+ld: library not found for -lICE
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+

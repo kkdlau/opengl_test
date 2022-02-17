@@ -1,0 +1,13 @@
+[
+{
+  "directory": "/Users/dannylau/Program/opengl_test/build",
+  "command": "/usr/bin/clang++  -DGL_SILENCE_DEPRECATION -DPROJ_DEBUG -I../. -I.././fltk-1.3.3 -I/usr/local/include -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks  -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk   -std=gnu++14 -o CMakeFiles/proj1.dir/Bitmap.cpp.o -c /Users/dannylau/Program/opengl_test/Bitmap.cpp",
+  "file": "/Users/dannylau/Program/opengl_test/Bitmap.cpp"
+},
+
+{
+  "directory": "/Users/dannylau/Program/opengl_test/build",
+  "command": "/usr/bin/clang++  -DGL_SILENCE_DEPRECATION -DPROJ_DEBUG -I../. -I.././fltk-1.3.3 -I/usr/local/include -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks  -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk   -std=gnu++14 -o CMakeFiles/proj1.dir/main.cpp.o -c /Users/dannylau/Program/opengl_test/main.cpp",
+  "file": "/Users/dannylau/Program/opengl_test/main.cpp"
+}
+]
