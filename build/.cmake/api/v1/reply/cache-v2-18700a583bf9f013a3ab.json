@@ -1154,6 +1154,18 @@
 			"value" : "[/usr/local/lib/libfltk_images.dylib;/usr/local/lib/libfltk_forms.dylib;/usr/local/lib/libfltk_gl.dylib;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework;/usr/local/lib/libfltk.dylib][/usr/local/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework][/usr/local/bin/fluid][v()]"
 		},
 		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_OpenCV",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding OpenCV"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[/usr/local/Cellar/opencv/4.5.4_4][v4.5.4()]"
+		},
+		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_OpenGL",
 			"properties" : 
 			[
@@ -1391,7 +1403,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/X11R6/include/freetype2"
+			"value" : "/usr/local/include/freetype2"
 		},
 		{
 			"name" : "FREETYPE_INCLUDE_DIR_ft2build",
@@ -1407,7 +1419,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/X11R6/include/freetype2"
+			"value" : "/usr/local/include/freetype2"
 		},
 		{
 			"name" : "FREETYPE_LIBRARY_DEBUG",
@@ -1439,7 +1451,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/X11R6/lib/libfreetype.dylib"
+			"value" : "/usr/local/lib/libfreetype.dylib"
 		},
 		{
 			"name" : "Fontconfig_INCLUDE_DIR",
@@ -1455,7 +1467,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/X11/include"
+			"value" : "/usr/local/Cellar/fontconfig/2.13.1/include"
 		},
 		{
 			"name" : "Fontconfig_LIBRARY",
@@ -1471,7 +1483,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/X11R6/lib/libfontconfig.dylib"
+			"value" : "/usr/local/lib/libfontconfig.dylib"
 		},
 		{
 			"name" : "OPENGL_EGL_INCLUDE_DIR",
@@ -1616,6 +1628,18 @@
 			],
 			"type" : "UNINITIALIZED",
 			"value" : ""
+		},
+		{
+			"name" : "OpenCV_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for OpenCV."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/local/lib/cmake/opencv4"
 		},
 		{
 			"name" : "PKG_CONFIG_EXECUTABLE",
@@ -2131,7 +2155,7 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Have library /usr/local/lib/libX11.dylib;/usr/X11R6/lib/libXext.dylib"
+					"value" : "Have library /usr/local/lib/libX11.dylib;/usr/local/lib/libXext.dylib"
 				}
 			],
 			"type" : "INTERNAL",
@@ -2247,7 +2271,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/X11R6/include"
+			"value" : "/usr/local/include"
 		},
 		{
 			"name" : "X11_XSync_INCLUDE_PATH",
@@ -2263,7 +2287,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/X11R6/include"
+			"value" : "/usr/local/include"
 		},
 		{
 			"name" : "X11_Xaccessrules_INCLUDE_PATH",
@@ -2471,7 +2495,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/X11R6/include"
+			"value" : "/usr/local/include"
 		},
 		{
 			"name" : "X11_Xext_LIB",
@@ -2487,7 +2511,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/X11R6/lib/libXext.dylib"
+			"value" : "/usr/local/lib/libXext.dylib"
 		},
 		{
 			"name" : "X11_Xfixes_INCLUDE_PATH",
@@ -2775,7 +2799,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/X11R6/include"
+			"value" : "/usr/local/include"
 		},
 		{
 			"name" : "X11_Xrender_LIB",
@@ -2791,7 +2815,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/X11R6/lib/libXrender.dylib"
+			"value" : "/usr/local/lib/libXrender.dylib"
 		},
 		{
 			"name" : "X11_Xshape_INCLUDE_PATH",
@@ -2807,7 +2831,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/X11R6/include"
+			"value" : "/usr/local/include"
 		},
 		{
 			"name" : "X11_Xss_INCLUDE_PATH",
@@ -3031,7 +3055,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/X11R6/include"
+			"value" : "/usr/local/include"
 		},
 		{
 			"name" : "X11_xkbfile_INCLUDE_PATH",

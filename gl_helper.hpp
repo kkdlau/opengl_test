@@ -29,10 +29,7 @@ static void gl_draw_shape(int drawing_mode, function<void()> drawing_funcs) {
   glEnd();
 }
 
-static void gl_set_point(double x, double y) {
-  // p = pDoc->clip(p);
-  glVertex2d(x, y);
-}
+static void gl_set_point(double x, double y) { glVertex2d(x, y); }
 
 static void gl_set_point(const Point &p) { gl_set_point(p.x, p.y); }
 

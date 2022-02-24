@@ -10,6 +10,7 @@
 #include <OpenGL/glu.h>
 #include <cmath>
 #include <functional>
+#include <string>
 #include <tuple>
 #include <vector>
 
@@ -59,6 +60,10 @@ public:
     const float span = max - min;
     return Point(frand() * span + min, frand() * span + min);
   }
+
+  const char *to_string() const {
+    return (std::to_string(this->x) + ", " + std::to_string(this->y)).c_str();
+  }
 };
 
 typedef tuple<GLubyte, GLubyte, GLubyte, GLubyte> RGBA;
@@ -86,11 +91,19 @@ public:
   int height;
   Image() : Image{nullptr, 0, 0} {}
   Image(GLubyte *buf, int w, int h) { set(buf, w, h); }
-  static Image from(char *path) {
+  static Image from(const char *path) {
     unsigned char *data;
     int width, height;
 
     data = readBMP(path, width, height);
+
+    // int w = 100, h = 200;
+
+    // GLubyte *tmp = new GLubyte[w * h * 4];
+
+    // gluScaleImage(GL_RGB, width, height, GL_UNSIGNED_BYTE, data, w, h,
+    //               GL_UNSIGNED_BYTE, tmp);
+
     return Image(data, width, height);
   }
 
@@ -174,6 +187,76 @@ public:
         handler(y, x);
       }
     }
+  }
+
+  void crop(size_t sx, size_t sy) {
+    vector<GLubyte> buf{};
+    for_each_pixel([&](int y, int x) {
+      if (y >= sy || x >= sx)
+        return;
+      auto color = (*this)(y, x);
+      buf.push_back(get<0>(color));
+      buf.push_back(get<1>(color));
+      buf.push_back(get<2>(color));
+      buf.push_back(get<3>(color));
+    });
+
+    bytes = buf;
+    width = width > sx ? sx : width;
+    height = height > sy ? sy : height;
+  }
+
+  void resize(int w, int h) {
+    w = 100;
+    h = 100;
+
+    GLubyte *tmp = new GLubyte[100 * 3];
+    GLubyte *tmp2 = new GLubyte[100 * 3];
+    printf("ok1");
+    fflush(stdout);
+    memset(tmp, 0, 10 * 10 * 3);
+    memset(tmp2, 0, 10 * 10 * 3);
+
+    printf("ok2");
+    fflush(stdout);
+
+    gluScaleImage(GL_RGB, 5, 5, GL_UNSIGNED_BYTE, tmp, 1, 1, GL_UNSIGNED_BYTE,
+                  tmp2);
+    printf("ok3");
+    fflush(stdout);
+
+    // bytes.data() = tmp;
+    // width = w;
+    // height = h;
+  }
+
+  void paint(Image &img, const Point &at) {
+    img.for_each_pixel([&](int y, int x) {
+      Point p{y, x};
+      p = p + at;
+      if (valid_point(p.y, p.x)) {
+        auto src_color = img(y, x);
+        auto tar_color = (*this)(p.y, p.x);
+        tar_color = src_color;
+      }
+    });
+  }
+
+  Image crop(const Point &from, const Point &to) {
+    vector<GLubyte> buf{};
+    for_range_pixel(from, to, [&](int y, int x) {
+      auto color = (*this)(y, x);
+      buf.push_back(get<0>(color));
+      buf.push_back(get<1>(color));
+      buf.push_back(get<2>(color));
+      buf.push_back(get<3>(color));
+    });
+    const Point diff = to - from;
+
+    Image tmp;
+    tmp.set(buf.data(), diff.x + 1, diff.y + 1);
+
+    return tmp;
   }
 };
 #endif // __IMAGE_H_

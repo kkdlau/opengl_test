@@ -247,22 +247,22 @@ FLTK_INCLUDE_DIR:PATH=/usr/local/include
 FLTK_MATH_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/lib/libm.tbd
 
 //Path to a file.
-FREETYPE_INCLUDE_DIR_freetype2:PATH=/usr/X11R6/include/freetype2
+FREETYPE_INCLUDE_DIR_freetype2:PATH=/usr/local/include/freetype2
 
 //Path to a file.
-FREETYPE_INCLUDE_DIR_ft2build:PATH=/usr/X11R6/include/freetype2
+FREETYPE_INCLUDE_DIR_ft2build:PATH=/usr/local/include/freetype2
 
 //Path to a library.
 FREETYPE_LIBRARY_DEBUG:FILEPATH=FREETYPE_LIBRARY_DEBUG-NOTFOUND
 
 //Path to a library.
-FREETYPE_LIBRARY_RELEASE:FILEPATH=/usr/X11R6/lib/libfreetype.dylib
+FREETYPE_LIBRARY_RELEASE:FILEPATH=/usr/local/lib/libfreetype.dylib
 
 //Path to a file.
-Fontconfig_INCLUDE_DIR:PATH=/usr/X11/include
+Fontconfig_INCLUDE_DIR:PATH=/usr/local/Cellar/fontconfig/2.13.1/include
 
 //Path to a library.
-Fontconfig_LIBRARY:FILEPATH=/usr/X11R6/lib/libfontconfig.dylib
+Fontconfig_LIBRARY:FILEPATH=/usr/local/lib/libfontconfig.dylib
 
 //Include for OpenGL on OS X
 OPENGL_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework
@@ -272,6 +272,9 @@ OPENGL_gl_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/
 
 //GLU library for OS X (usually same as OpenGL library)
 OPENGL_glu_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework
+
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/usr/local/lib/cmake/opencv4
 
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/local/bin/pkg-config
@@ -307,10 +310,10 @@ X11_XRes_INCLUDE_PATH:PATH=/usr/X11R6/include
 X11_XRes_LIB:FILEPATH=/usr/X11R6/lib/libXRes.dylib
 
 //Path to a file.
-X11_XShm_INCLUDE_PATH:PATH=/usr/X11R6/include
+X11_XShm_INCLUDE_PATH:PATH=/usr/local/include
 
 //Path to a file.
-X11_XSync_INCLUDE_PATH:PATH=/usr/X11R6/include
+X11_XSync_INCLUDE_PATH:PATH=/usr/local/include
 
 //Path to a file.
 X11_Xaccessrules_INCLUDE_PATH:PATH=/usr/X11R6/include
@@ -349,10 +352,10 @@ X11_Xdmcp_INCLUDE_PATH:PATH=/usr/local/include
 X11_Xdmcp_LIB:FILEPATH=/usr/local/lib/libXdmcp.dylib
 
 //Path to a file.
-X11_Xext_INCLUDE_PATH:PATH=/usr/X11R6/include
+X11_Xext_INCLUDE_PATH:PATH=/usr/local/include
 
 //Path to a library.
-X11_Xext_LIB:FILEPATH=/usr/X11R6/lib/libXext.dylib
+X11_Xext_LIB:FILEPATH=/usr/local/lib/libXext.dylib
 
 //Path to a file.
 X11_Xfixes_INCLUDE_PATH:PATH=/usr/X11R6/include
@@ -406,13 +409,13 @@ X11_Xrandr_INCLUDE_PATH:PATH=/usr/X11R6/include
 X11_Xrandr_LIB:FILEPATH=/usr/X11R6/lib/libXrandr.dylib
 
 //Path to a file.
-X11_Xrender_INCLUDE_PATH:PATH=/usr/X11R6/include
+X11_Xrender_INCLUDE_PATH:PATH=/usr/local/include
 
 //Path to a library.
-X11_Xrender_LIB:FILEPATH=/usr/X11R6/lib/libXrender.dylib
+X11_Xrender_LIB:FILEPATH=/usr/local/lib/libXrender.dylib
 
 //Path to a file.
-X11_Xshape_INCLUDE_PATH:PATH=/usr/X11R6/include
+X11_Xshape_INCLUDE_PATH:PATH=/usr/local/include
 
 //Path to a file.
 X11_Xss_INCLUDE_PATH:PATH=/usr/X11R6/include
@@ -454,7 +457,7 @@ X11_Xxf86vm_INCLUDE_PATH:PATH=/usr/X11R6/include
 X11_Xxf86vm_LIB:FILEPATH=/usr/X11R6/lib/libXxf86vm.dylib
 
 //Path to a file.
-X11_dpms_INCLUDE_PATH:PATH=/usr/X11R6/include
+X11_dpms_INCLUDE_PATH:PATH=/usr/local/include
 
 //Path to a file.
 X11_xkbfile_INCLUDE_PATH:PATH=/usr/X11R6/include
@@ -616,6 +619,8 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding FLTK
 FIND_PACKAGE_MESSAGE_DETAILS_FLTK:INTERNAL=[/usr/local/lib/libfltk_images.dylib;/usr/local/lib/libfltk_forms.dylib;/usr/local/lib/libfltk_gl.dylib;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework;/usr/local/lib/libfltk.dylib][/usr/local/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework][/usr/local/bin/fluid][v()]
+//Details about finding OpenCV
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr/local/Cellar/opencv/4.5.4_4][v4.5.4()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework][c ][v()]
 //Details about finding X11
@@ -697,7 +702,7 @@ PKG_FONTCONFIG_fontconfig_VERSION:INTERNAL=
 X11_ICE_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_LIB
 X11_ICE_LIB-ADVANCED:INTERNAL=1
-//Have library /usr/local/lib/libX11.dylib;/usr/X11R6/lib/libXext.dylib
+//Have library /usr/local/lib/libX11.dylib;/usr/local/lib/libXext.dylib
 X11_LIB_X11_SOLO:INTERNAL=1
 //ADVANCED property for variable: X11_SM_INCLUDE_PATH
 X11_SM_INCLUDE_PATH-ADVANCED:INTERNAL=1

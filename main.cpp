@@ -3,9 +3,11 @@
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Gl_Window.H>
 #include <FL/Fl_Window.H>
+#include <opencv2/opencv.hpp>
 #include <stdio.h>
 
 #include "Image.hpp"
+#include "ImageUtils.hpp"
 
 using namespace GLHelper;
 
@@ -52,7 +54,7 @@ public:
       startrow = 0;
 
     m_pPaintBitstart = render_content.raw_fmt() +
-                       3 * ((render_content.width * startrow) + scrollpos.x);
+                       4 * ((render_content.width * startrow) + scrollpos.x);
 
     m_nStartRow = startrow;
     m_nEndRow = startrow + drawHeight;
@@ -71,13 +73,13 @@ public:
   }
 
   void render2() {
-    RestoreContent(drawing.raw_fmt());
-    glPointSize(30);
-    gl_draw_shape(GL_POINTS, [&] {
-      GLubyte color[] = {255, 0, 0, 255 / 2};
-      gl_set_color(color);
-      gl_set_point(50, 50);
-    });
+    // RestoreContent(drawing.raw_fmt());
+    // glPointSize(30);
+    // gl_draw_shape(GL_POINTS, [&] {
+    //   GLubyte color[] = {255, 0, 0, 255 / 2};
+    //   gl_set_color(color);
+    //   gl_set_point(50, 50);
+    // });
     RestoreContent(render_content.raw_fmt());
   }
 
@@ -93,7 +95,7 @@ public:
     glPixelStorei(GL_PACK_ALIGNMENT, 1);
     glPixelStorei(GL_PACK_ROW_LENGTH, render_content.width);
 
-    glReadPixels(0, m_nWindowHeight - render_content.width,
+    glReadPixels(0, m_nWindowHeight - render_content.height,
                  render_content.width, render_content.height, GL_RGBA,
                  GL_UNSIGNED_BYTE, ptr);
   }
@@ -112,12 +114,7 @@ public:
 
   void set_img(Image &img) {
     render_content = img;
-    render_content.set_alpha(0.1);
-    GLubyte *blank = new GLubyte[img.width * img.height * 3];
-    memset(blank, 0, img.width * img.height * 3);
-    drawing.set(blank, img.width, img.height);
-    drawing.set_alpha(1);
-    resizeWindow(img.width, img.height);
+    resizeWindow(700, 700);
     refresh();
   }
 
@@ -135,11 +132,29 @@ public:
 
 int main() {
   View v{0, 0, 700, 700, nullptr};
-  Image bean = Image::from(
-      "/Users/dannylau/Program/COMP4411-Impressionist/images/bean.bmp");
+  // Image bean = Image::from(
+  //     "/Users/dannylau/Program/COMP4411-Impressionist/images/babyraptor.bmp");
+
+  Image bean = Image::from("/Users/dannylau/Program/COMP4411-Impressionist/"
+                           "images/test_image.bmp");
+
+  // Image clone = bean;
+  // clone.for_range_pixel(Point{100, 100}, Point{200, 200}, [&](int y, int x) {
+  //   auto c = clone(y, x);
+  //   get<0>(c) = 255;
+  //   get<1>(c) = 255;
+  //   get<2>(c) = 255;
+  // });
+
+  // debugger("similarity : %f", ImageUtils::structural_similarity(bean,
+  // clone));
+  // bean.resize(100, 100);
+  ImageUtils::mosaics(bean);
+
+  Fl::visual(FL_DOUBLE | FL_INDEX);
 
   v.set_img(bean);
-  Fl::visual(FL_DOUBLE | FL_INDEX);
+
   v.show();
 
   return Fl::run();

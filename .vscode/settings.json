@@ -23,6 +23,10 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "algorithm": "cpp",
-        "__functional_03": "cpp"
+        "__functional_03": "cpp",
+        "string": "cpp",
+        "filesystem": "cpp",
+        "iterator": "cpp",
+        "chrono": "cpp"
     }
 }
